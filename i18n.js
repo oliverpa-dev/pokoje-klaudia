@@ -169,6 +169,7 @@
       "Zadzwoń do nas": "Rufen Sie uns an",
       "Chętnie odpowiemy na wszystkie Twoje pytania dotyczące dostępności pokoi, rezerwacji oraz pobytu w naszym obiekcie. Zadzwoń do nas – pomożemy Ci zaplanować udany wypoczynek nad morzem!":
         "Gerne beantworten wir alle Ihre Fragen zur Verfügbarkeit der Zimmer, zur Reservierung und zu Ihrem Aufenthalt bei uns. Rufen Sie uns an – wir helfen Ihnen, einen gelungenen Urlaub an der Ostsee zu planen!",
+      "Adres...": "Adresse …",
       "Albo napisz": "Oder schreiben Sie uns",
       Email: "E-Mail",
       Wiadomość: "Nachricht",
