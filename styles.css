@@ -37,10 +37,8 @@
   --grays-black: #000000;
   --text-placeholder: #94a3b8;
   --text-tertiary: #64748b;
-  /* bg/tertiary — the "O nas" section fill */
+  /* bg/tertiary — the lightbox controls */
   --bg-tertiary: #f1f5f9;
-  /* The three closing sections are drawn on a flat grey, not a token */
-  --bg-muted: #f8f8f8;
 
   /* The link's hover underline matches the buttons' border */
   --nav-link-border: var(--border-warning-primary);
@@ -1466,7 +1464,7 @@ button:focus-visible {
   gap: 24px;
   width: 100%;
   padding: 80px var(--gutter-inline);
-  background: var(--bg-tertiary);
+  background: var(--bg-secondary);
 }
 
 .about__body {
@@ -1542,7 +1540,7 @@ button:focus-visible {
   gap: 24px;
   width: 100%;
   padding: 80px var(--gutter-inline);
-  background: var(--bg-muted);
+  background: var(--bg-secondary);
 }
 
 .location__body {
@@ -1619,7 +1617,7 @@ button:focus-visible {
   gap: 24px;
   width: 100%;
   padding: 80px var(--gutter-inline);
-  background: var(--bg-muted);
+  background: var(--bg-secondary);
 }
 
 /* Two rows of three cards in the frame; the grid keeps that shape and
@@ -1691,7 +1689,7 @@ button:focus-visible {
   gap: 24px;
   width: 100%;
   padding: 80px var(--gutter-inline);
-  background: var(--bg-tertiary);
+  background: var(--bg-secondary);
 }
 
 .contact__body {
