@@ -1,0 +1,2212 @@
+/* ---------------------------------------------------------------
+   Pokoje gościnne Klaudia — hero section
+   Design: Figma "Guest room" / hero (node 110:121), 1440 × 801
+   --------------------------------------------------------------- */
+
+:root {
+  /* Design-system tokens, named as they appear in the Figma frame */
+  --bg-primary: #ffffff;
+  --border-primary: #cbd5e1;
+  --border-secondary: #e2e8f0;
+  --border-tertiary: #f1f5f9;
+  --bg-secondary: #f8fafc;
+  --icon-secondary: #475569;
+  --icon-primary: #0f172a;
+  --text-primary: #0f172a;
+  --text-secondary: #475569;
+
+  --bg-warning-primary: #ffedd5;
+  --bg-warning-secondary: #ea580c;
+  --text-on-dark: #ffffff;
+  --icon-on-dark: #ffffff;
+  --border-warning-primary: #f97316;
+  --text-warning-primary: #ea580c;
+  --bg-warning-primary-hover: #fed7aa;
+  --text-warning-primary-hover: #c2410c;
+
+  --bg-info-primary: #eff6ff;
+  --border-info-primary: #3b82f6;
+  --text-info-primary: #2563eb;
+  --bg-info-primary-hover: #dbeafe;
+  --text-info-primary-hover: #1d4ed8;
+
+  /* Dropdown surfaces (Figma node 190:3652) */
+  --bg-secondary-hover: #f1f5f9;
+  --text-secondary-hover: #334155;
+
+  --grays-black: #000000;
+  --text-placeholder: #94a3b8;
+  --text-tertiary: #64748b;
+  /* bg/tertiary — the "O nas" section fill */
+  --bg-tertiary: #f1f5f9;
+  /* The three closing sections are drawn on a flat grey, not a token */
+  --bg-muted: #f8f8f8;
+
+  /* The link's hover underline matches the buttons' border */
+  --nav-link-border: var(--border-warning-primary);
+
+  /* Hero content sits on footage, so its type inverts */
+  --text-on-media: #ffffff;
+  --text-on-media-muted: #fffcfc;
+  --scrim: rgba(0, 0, 0, 0.4);
+  /* alpha/light/900 — the lightbox sheet (node 190:4243) */
+  --scrim-lightbox: rgba(26, 26, 26, 0.8);
+
+  --hero-gutter: 80px;
+  /* The frame is 1440 wide with 80px gutters, so its content column is
+     1280. Past 1440 the gutters grow instead of the content. */
+  --content-max: 1280px;
+  --gutter-inline: max(
+    var(--hero-gutter),
+    calc((100% - var(--content-max)) / 2)
+  );
+  --header-height: 77px;
+  --radius-button: 8px;
+
+  --font-display: "Onest", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-body: "Figtree", system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  /* Anchors land below the pinned sub-navigation (4px strip + 70px bar) */
+  scroll-padding-top: 74px;
+}
+
+body {
+  margin: 0;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+}
+
+img {
+  display: block;
+}
+
+/* --- Hero shell ------------------------------------------------ */
+
+.hero {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+  /* Always exactly one viewport tall, whatever the display.
+     svh keeps mobile browsers from overflowing when their toolbars retract. */
+  height: 100vh;
+  height: 100svh;
+  background: var(--bg-primary);
+}
+
+/* --- Sub-header (1440 × 23, above the main header) ------------- */
+
+.hero__subheader {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  width: 100%;
+  padding: 0 var(--gutter-inline);
+  background: var(--bg-warning-secondary);
+  color: var(--text-on-dark);
+  font-family: var(--font-display);
+}
+
+/* Label and phone link share the left end (node 190:3914) */
+.hero__subheader-start {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Plain 12px label, no underline — the phone link beside it carries one */
+.hero__subheader-label {
+  margin: 0;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: normal;
+  color: var(--text-on-dark);
+  white-space: nowrap;
+}
+
+/* Language switcher and the Booking.com link share the right end */
+.hero__subheader-end {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+}
+
+/* --- Round flag (14px disc, the flag overflows and is clipped) -- */
+
+.flag {
+  position: relative;
+  display: block;
+  flex: 0 0 auto;
+  width: 14px;
+  height: 14px;
+  border-radius: 64px;
+  overflow: clip;
+  background: #ffffff;
+}
+
+.flag img {
+  position: absolute;
+  inset: 0 -30%;
+  width: 160%;
+  height: 100%;
+  max-width: none;
+}
+
+/* --- Language switcher (node 190:3685) ------------------------- */
+
+.language {
+  position: relative;
+  flex: 0 0 auto;
+}
+
+.language__toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  margin: 0;
+  padding: 8px 4px;
+  border: 0;
+  background: none;
+  color: var(--text-on-dark);
+  font-family: var(--font-display);
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 16px;
+  cursor: pointer;
+}
+
+.language__current {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.language__caret {
+  flex: 0 0 auto;
+  width: 16px;
+  height: 16px;
+  background-color: currentColor;
+  -webkit-mask: url("assets/icons/arrow-drop-up-line.svg") center / contain
+    no-repeat;
+  mask: url("assets/icons/arrow-drop-up-line.svg") center / contain no-repeat;
+  /* The design draws the caret pointing up while the list is open */
+  transform: rotate(180deg);
+  transition: transform 150ms ease;
+}
+
+.language__toggle[aria-expanded="true"] .language__caret {
+  transform: rotate(0deg);
+}
+
+/* --- Language dropdown (node 190:3703 / items 190:3652) -------- */
+
+.language__menu {
+  position: absolute;
+  top: 100%;
+  left: 4px;
+  z-index: 30;
+  display: flex;
+  flex-direction: column;
+  min-width: 100%;
+  padding: 4px 0;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-primary);
+  border-radius: 6px;
+  overflow: clip;
+}
+
+.language__menu[hidden] {
+  display: none;
+}
+
+.language__item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  margin: 0;
+  padding: 0 8px;
+  border: 0;
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+  font-family: var(--font-display);
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 20px;
+  text-align: left;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.language__item:hover,
+.language__item:focus-visible {
+  background: var(--bg-secondary-hover);
+  color: var(--text-secondary-hover);
+}
+
+/* Active = the language currently in use (orange/100 in the design) */
+.language__item.is-active {
+  background: var(--bg-warning-primary);
+  color: var(--text-secondary-hover);
+}
+
+/* On a light surface the switcher inverts (node 190:4022) */
+.language--dark .language__toggle {
+  padding: 0 4px;
+  color: var(--text-primary);
+}
+
+.language--dark .language__toggle .flag {
+  border: 0.5px solid var(--bg-secondary);
+}
+
+.language--dark .language__menu {
+  top: calc(100% + 4px);
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+/* --- Header (1440 × 77, white bar with a bottom rule) ----------- */
+
+.hero__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  width: 100%;
+  padding: 12px var(--gutter-inline);
+  background: var(--bg-primary);
+  border-bottom: 1px solid var(--border-primary);
+  overflow: clip;
+}
+
+.hero__nav {
+  display: flex;
+  flex: 1 0 0;
+  min-width: 0;
+  gap: 20px;
+  align-items: center;
+}
+
+.hero__nav-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-primary);
+  font-family: var(--font-display);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 20px;
+  white-space: nowrap;
+  text-decoration: none;
+  transition: box-shadow 150ms ease;
+}
+
+/* Inset shadow, not a border, so the 24px link box never shifts */
+.hero__nav-link:hover {
+  box-shadow: inset 0 -1px 0 var(--nav-link-border);
+}
+
+.hero__header-cta {
+  display: flex;
+  flex: 1 0 0;
+  min-width: 0;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+/* --- Logo (162 × 52, layered vectors from the design) ---------- */
+
+.hero__logo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+}
+
+.logo {
+  position: relative;
+  display: block;
+  width: 162px;
+  height: 52px;
+  overflow: clip;
+}
+
+.logo img {
+  position: absolute;
+  width: auto;
+  height: auto;
+  max-width: none;
+}
+
+.logo__wordmark {
+  inset: 0 10% 41.99% 10.85%;
+  width: 79.15%;
+  height: 58.01%;
+}
+
+.logo__tagline {
+  inset: 80.52% 15.58% 0 15.63%;
+  width: 68.79%;
+  height: 19.48%;
+}
+
+.logo__rule {
+  inset: 90.26% 0 9.74% 0;
+  width: 100%;
+  height: 1px;
+}
+
+/* --- Buttons (soft fill + 1px border, 38px tall) --------------- */
+/* States come from Figma node 128:538: hover darkens the fill and
+   deepens the text, and the icon follows the text colour. */
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  border: 1px solid transparent;
+  border-radius: var(--radius-button);
+  overflow: clip;
+  font-family: var(--font-display);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 20px;
+  white-space: nowrap;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 150ms ease, color 150ms ease,
+    transform 150ms ease;
+}
+
+.button--warning {
+  background: var(--bg-warning-primary);
+  border-color: var(--border-warning-primary);
+  color: var(--text-warning-primary);
+}
+
+.button--warning:hover,
+.button--warning:focus-visible {
+  background: var(--bg-warning-primary-hover);
+  color: var(--text-warning-primary-hover);
+}
+
+.button--info {
+  background: var(--bg-info-primary);
+  border-color: var(--border-info-primary);
+  color: var(--text-info-primary);
+}
+
+.button--info:hover,
+.button--info:focus-visible {
+  background: var(--bg-info-primary-hover);
+  color: var(--text-info-primary-hover);
+}
+
+/* Link state: no fill, underlined white label on the orange strip */
+.button--link {
+  background: none;
+  border-color: transparent;
+  color: var(--text-on-dark);
+  text-decoration: underline;
+  text-underline-position: from-font;
+}
+
+.button--link:hover,
+.button--link:focus-visible {
+  color: var(--bg-info-primary-hover);
+}
+
+/* The 12px size used in the sub-header */
+.button--sm {
+  padding: 8px;
+  font-size: 12px;
+  line-height: 16px;
+}
+
+.button:active {
+  transform: translateY(1px);
+}
+
+/* Icons are masked rather than <img> so they take the button's
+   colour in every state. */
+.button__icon {
+  flex: 0 0 auto;
+  width: 16px;
+  height: 16px;
+  background-color: currentColor;
+  -webkit-mask: var(--button-icon) center / contain no-repeat;
+  mask: var(--button-icon) center / contain no-repeat;
+}
+
+.button__icon--arrow-right-up-line {
+  --button-icon: url("assets/icons/arrow-right-up-line.svg");
+}
+
+.button__icon--arrow-right-down-line {
+  --button-icon: url("assets/icons/arrow-right-down-line.svg");
+}
+
+.button__icon--arrow-down-line {
+  --button-icon: url("assets/icons/arrow-down-line.svg");
+}
+
+.button__icon--map-pin-fill {
+  --button-icon: url("assets/icons/map-pin-fill.svg");
+}
+
+.button__icon--phone-fill-warning {
+  --button-icon: url("assets/icons/phone-fill-warning.svg");
+}
+
+.button__icon--phone-fill {
+  --button-icon: url("assets/icons/phone-fill-16.svg");
+}
+
+/* --- Hero content (1440 × 724, vertically centred) ------------- */
+
+.hero__container {
+  position: relative;
+  overflow: clip;
+  isolation: isolate;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 32px;
+  width: 100%;
+  /* Takes whatever the sub-header and header leave, so the hero as a whole
+     stays exactly one viewport tall */
+  flex: 1 1 auto;
+  min-height: 0;
+  padding: 0 var(--gutter-inline);
+}
+
+.hero__media {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.hero__video {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  object-fit: cover;
+  object-position: 50% 55%;
+  background: var(--grays-black);
+}
+
+.hero__scrim {
+  position: absolute;
+  inset: 0;
+  background: var(--scrim);
+}
+
+.hero__title,
+.hero__body {
+  position: relative;
+  z-index: 1;
+}
+
+.hero__title {
+  margin: 0;
+  max-width: 665px;
+  font-family: var(--font-display);
+  font-size: 58px;
+  font-weight: 500;
+  line-height: normal;
+  color: var(--text-on-media);
+  overflow-wrap: break-word;
+}
+
+.hero__body {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 24px;
+}
+
+.hero__description {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-end;
+  gap: 8px;
+  /* Onest Regular 20px (node 110:124) */
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: 400;
+  line-height: normal;
+  color: var(--text-on-media-muted);
+}
+
+.hero__description p {
+  margin: 0;
+  overflow-wrap: break-word;
+}
+
+.hero__buttons {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+/* --- Play / pause control (44 × 44 at 1316, 676) --------------- */
+
+.hero__motion-toggle {
+  position: absolute;
+  right: var(--gutter-inline);
+  bottom: 104px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  padding: 8px 0;
+  border: 1px solid var(--border-secondary);
+  border-radius: var(--radius-button);
+  background: var(--bg-primary);
+  overflow: clip;
+  cursor: pointer;
+  transition: transform 150ms ease, box-shadow 150ms ease;
+}
+
+.hero__motion-toggle:hover {
+  box-shadow: 0 4px 16px rgba(15, 23, 42, 0.18);
+}
+
+.hero__motion-icon {
+  flex: 0 0 auto;
+  width: 16px;
+  height: 16px;
+}
+
+.hero.is-playing .hero__motion-icon {
+  /* paused-state glyph is drawn from the same 16px slot the design uses */
+  visibility: hidden;
+}
+
+.hero.is-playing .hero__motion-toggle::after {
+  content: "";
+  width: 16px;
+  height: 16px;
+  margin-left: -16px;
+  background: var(--icon-primary);
+  -webkit-mask: linear-gradient(#000 0 0) 18% 50% / 24% 76% no-repeat,
+    linear-gradient(#000 0 0) 82% 50% / 24% 76% no-repeat;
+  mask: linear-gradient(#000 0 0) 18% 50% / 24% 76% no-repeat,
+    linear-gradient(#000 0 0) 82% 50% / 24% 76% no-repeat;
+}
+
+/* --- Focus ----------------------------------------------------- */
+
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--text-primary);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+.hero__container a:focus-visible {
+  outline-color: var(--text-on-media);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* --- Responsive ------------------------------------------------ */
+
+@media (max-width: 1100px) {
+  :root {
+    --hero-gutter: 48px;
+  }
+
+  .hero__title {
+    font-size: clamp(40px, 5.2vw, 58px);
+  }
+}
+
+@media (max-width: 900px) {
+  .hero__header {
+    flex-wrap: wrap;
+    row-gap: 16px;
+    overflow: visible;
+  }
+
+  .hero__nav {
+    order: 3;
+    flex: 1 0 100%;
+    gap: 16px;
+    overflow-x: auto;
+    scrollbar-width: none;
+    padding-bottom: 2px;
+  }
+
+  .hero__nav::-webkit-scrollbar {
+    display: none;
+  }
+
+  .hero__logo {
+    order: 1;
+    flex: 1 0 0;
+    align-items: flex-start;
+  }
+
+  .hero__header-cta {
+    order: 2;
+    flex: 0 0 auto;
+  }
+
+  /* The hero is already one viewport tall; the toggle needs room below
+     the copy once the nav wraps onto its own row */
+  .hero__container {
+    padding-top: 40px;
+    padding-bottom: 96px;
+  }
+}
+
+@media (max-width: 600px) {
+  :root {
+    --hero-gutter: 20px;
+  }
+
+  .hero__container {
+    gap: 24px;
+  }
+
+  .hero__title {
+    font-size: clamp(34px, 9vw, 44px);
+  }
+
+  .hero__description {
+    font-size: 18px;
+  }
+
+  .hero__buttons .button {
+    flex: 1 1 auto;
+    justify-content: center;
+  }
+
+  .hero__motion-toggle {
+    bottom: 24px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .button,
+  .hero__motion-toggle {
+    transition: none;
+  }
+}
+
+/* =================================================================
+   Co myślą o nas goście? (node 110:136), 1440 × 454
+   A right-to-left marquee: the 375px cards run off the right edge of
+   the frame (the track is drawn 1572 wide inside a 1280 column).
+   ================================================================= */
+
+.reviews {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 24px;
+  width: 100%;
+  padding: 80px var(--gutter-inline);
+  background: var(--bg-secondary);
+}
+
+.reviews__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  width: 100%;
+}
+
+/* The control (node 181:3515): white, 1px rule, same metrics as .button */
+.reviews__toggle {
+  display: inline-flex;
+  flex: 0 0 auto;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  border: 1px solid var(--border-primary);
+  border-radius: var(--radius-button);
+  background: var(--bg-primary);
+  overflow: clip;
+  font-family: var(--font-display);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 20px;
+  white-space: nowrap;
+  color: var(--text-primary);
+  cursor: pointer;
+  transition: background-color 150ms ease, border-color 150ms ease;
+}
+
+.reviews__toggle:hover {
+  background: var(--border-tertiary);
+  border-color: var(--icon-secondary);
+}
+
+.reviews__toggle-icon {
+  flex: 0 0 auto;
+  width: 16px;
+  height: 16px;
+}
+
+/* The track is clipped to the content column, so the cards never run
+   wider than the heading and the Zatrzymaj control above them */
+.reviews__viewport {
+  width: 100%;
+  max-width: 100%;
+  overflow: hidden;
+}
+
+.reviews__track {
+  display: flex;
+  gap: 24px;
+  width: max-content;
+}
+
+/* Only animate once the clone is in place, so the static fallback keeps
+   all of its cards on screen */
+.reviews.is-ready .reviews__track {
+  animation: reviews-marquee var(--reviews-duration, 40s) linear infinite;
+}
+
+.reviews.is-paused .reviews__track {
+  animation-play-state: paused;
+}
+
+/* One group travels left by its own width plus the 24px that follows it,
+   which lands the clone exactly where the original began */
+@keyframes reviews-marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(calc(-50% - 12px));
+  }
+}
+
+.reviews__group {
+  display: flex;
+  flex: none;
+  gap: 24px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* --- Review card (node 181:3310), 375 × 229 ---------------------- */
+
+.testimonial {
+  display: flex;
+  flex: none;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+  width: 375px;
+  height: 229px;
+  padding: 16px;
+  overflow: clip;
+  border-radius: 6px;
+  background: var(--bg-primary);
+}
+
+.testimonial__head {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  width: 100%;
+}
+
+/* The frame uses photo avatars; with no guest photography the 40px slot
+   carries the reviewer's initial instead */
+.avatar {
+  display: flex;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--border-secondary);
+  font-family: var(--font-display);
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 20px;
+  color: var(--icon-secondary);
+}
+
+.testimonial__who {
+  display: flex;
+  flex: 1 1 auto;
+  min-width: 0;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.testimonial__name {
+  margin: 0;
+  width: 100%;
+  font-family: var(--font-display);
+  font-size: 16px;
+  font-weight: 500;
+  line-height: normal;
+  color: var(--text-primary);
+  overflow-wrap: break-word;
+}
+
+.testimonial__role {
+  margin: 0;
+  width: 100%;
+  font-family: var(--font-display);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: normal;
+  color: var(--text-secondary);
+  overflow-wrap: break-word;
+}
+
+.testimonial__stars {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin: 0;
+}
+
+.testimonial__stars img {
+  flex: 0 0 auto;
+  width: 16px;
+  height: 16px;
+}
+
+.testimonial__copy {
+  margin: 0;
+  width: 100%;
+  font-family: var(--font-body);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: normal;
+  color: var(--text-primary);
+  overflow-wrap: break-word;
+}
+
+@media (max-width: 600px) {
+  .reviews {
+    padding: 40px var(--gutter-inline);
+  }
+
+  .reviews__header {
+    flex-wrap: wrap;
+    row-gap: 16px;
+  }
+
+  /* The card still has to clear the gutter on the narrowest phones */
+  .testimonial {
+    width: min(375px, calc(100vw - 2 * var(--hero-gutter)));
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reviews__toggle {
+    transition: none;
+  }
+}
+
+/* =================================================================
+   Pokoje — rooms section (node 181:3251), 1440 × 1083
+   ================================================================= */
+
+.rooms {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 24px;
+  width: 100%;
+  padding: 80px var(--gutter-inline);
+  /* Section fill from the design (node 110:136): bg/secondary */
+  background: var(--bg-secondary);
+}
+
+.rooms__heading {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: 32px;
+  font-weight: 600;
+  line-height: normal;
+  color: var(--text-primary);
+}
+
+.rooms__body,
+.rooms__content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+  width: 100%;
+}
+
+/* --- Room-type filters ----------------------------------------- */
+
+.rooms__filters {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 16px;
+  border: 1px solid var(--border-primary);
+  border-radius: var(--radius-button);
+  /* Drawn with no fill of their own on the tinted section (node 150:268) */
+  background: transparent;
+  color: var(--text-primary);
+  font-family: var(--font-display);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 20px;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: background-color 150ms ease;
+}
+
+.chip:hover {
+  background: var(--border-tertiary);
+}
+
+.chip--active {
+  background: var(--border-secondary);
+}
+
+/* --- Gallery ---------------------------------------------------- */
+
+.gallery {
+  display: flex;
+  align-items: stretch;
+  gap: 8px;
+  width: 100%;
+  /* Height follows the width, so every photo keeps the proportions it was
+     drawn with instead of the cells stretching wider on big screens.
+     min-height:0 is required: .gallery is itself a flex item, and its
+     automatic minimum size would otherwise override the ratio. */
+  aspect-ratio: 1280 / 520;
+  min-height: 0;
+}
+
+.gallery__main,
+.gallery__cell {
+  margin: 0;
+  overflow: clip;
+  border: 1px solid var(--border-tertiary);
+  background: var(--bg-primary);
+}
+
+.gallery__main {
+  /* 640 : 632 — the two columns share width in the drawn ratio */
+  flex: 640 1 0;
+  min-width: 0;
+  min-height: 0;
+  height: 100%;
+  border-radius: 8px 0 0 8px;
+}
+
+.gallery__grid {
+  flex: 632 1 0;
+  min-width: 0;
+  min-height: 0;
+  height: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 8px;
+}
+
+.gallery__cell {
+  min-width: 0;
+  min-height: 0;
+}
+
+/* Both right-hand cells carry rounded right corners, as drawn */
+.gallery__cell:nth-child(2n) {
+  border-radius: 0 8px 8px 0;
+}
+
+.gallery__trigger {
+  display: block;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  border: 0;
+  background: none;
+  cursor: zoom-in;
+}
+
+.gallery img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  object-fit: cover;
+  transition: transform 300ms ease;
+}
+
+.gallery__trigger:hover img {
+  transform: scale(1.03);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .gallery img {
+    transition: none;
+  }
+
+  .gallery__trigger:hover img {
+    transform: none;
+  }
+}
+
+/* --- Room details ----------------------------------------------- */
+
+/* The details column (300px) and the room description (900px) sit side by
+   side with the drawn 80px gutter between them */
+.room-details {
+  display: flex;
+  align-items: flex-start;
+  gap: 80px;
+  width: 100%;
+}
+
+.room-details__info {
+  display: flex;
+  flex: 0 0 auto;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 32px;
+  width: 300px;
+}
+
+/* --- Room description (node 168:238) ----------------------------- */
+
+.room-description {
+  display: flex;
+  flex: 1 1 0;
+  min-width: 0;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.room-description__heading {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: 24px;
+  font-weight: 600;
+  line-height: normal;
+  color: var(--text-primary);
+}
+
+.room-description__copy {
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  color: var(--text-tertiary);
+}
+
+.room-details__titles {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.room-details__name {
+  margin: 0;
+  width: 300px;
+  font-family: var(--font-display);
+  font-size: 24px;
+  font-weight: 600;
+  line-height: normal;
+  color: var(--text-primary);
+  overflow-wrap: break-word;
+}
+
+.room-details__subtitle {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: 18px;
+  font-weight: 500;
+  line-height: normal;
+  color: var(--text-secondary);
+}
+
+.amenities {
+  display: grid;
+  grid-template-columns: auto auto;
+  justify-content: space-between;
+  row-gap: 20px;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.amenities li {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-family: var(--font-body);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: normal;
+  color: var(--text-secondary);
+  white-space: nowrap;
+}
+
+.amenities img {
+  flex: 0 0 auto;
+  width: 16px;
+  height: 16px;
+}
+
+.room-details__price {
+  margin: 0;
+  width: 300px;
+  font-family: var(--font-body);
+  font-size: 18px;
+  font-weight: 600;
+  line-height: normal;
+  color: var(--text-primary);
+}
+
+/* The CTA hangs 24px below the info block (node 168:237), not 32px */
+.room-details__info > .button {
+  margin-top: -8px;
+}
+
+/* --- Responsive -------------------------------------------------- */
+
+@media (max-width: 760px) {
+  /* Stacked: each photo sizes itself, so nothing needs a definite container */
+  .gallery {
+    flex-direction: column;
+    height: auto;
+    aspect-ratio: auto;
+  }
+
+  /* Stacked, each box sizes to its photo: the base min-height:0 and
+     flex-basis:0 would otherwise collapse them in a column */
+  .gallery__main,
+  .gallery__grid {
+    flex: 0 0 auto;
+    min-height: auto;
+    height: auto;
+    width: 100%;
+  }
+
+  .gallery__main {
+    border-radius: 8px 8px 0 0;
+  }
+
+  .gallery__main img {
+    height: auto;
+    aspect-ratio: 640 / 520;
+  }
+
+  .gallery__grid {
+    grid-template-rows: auto auto;
+  }
+
+  .gallery__cell img {
+    height: auto;
+    aspect-ratio: 312 / 256;
+  }
+
+  .gallery__cell:nth-child(2n) {
+    border-radius: 0;
+  }
+
+  .gallery__cell:nth-child(3) {
+    border-radius: 0 0 0 8px;
+  }
+
+  .gallery__cell:nth-child(4) {
+    border-radius: 0 0 8px 0;
+  }
+}
+
+@media (max-width: 600px) {
+  .room-details__info,
+  .room-details__name,
+  .room-details__price {
+    width: 100%;
+  }
+
+  .amenities {
+    justify-content: start;
+    column-gap: 24px;
+  }
+
+  .room-details .button {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+/* --- Lightbox ---------------------------------------------------- */
+
+/* =================================================================
+   Galeria — lightbox (node 190:4243)
+   A dimmed sheet with the photo centred, the arrows flanking it at a
+   40px gap, the counter 24px below, and close pinned to the 80px inset.
+   ================================================================= */
+
+.lightbox {
+  width: 100vw;
+  max-width: 100vw;
+  height: 100dvh;
+  max-height: 100dvh;
+  margin: 0;
+  padding: 80px;
+  border: 0;
+  /* The tint lives on ::backdrop only — putting it here as well would
+     stack two 0.8 layers and darken the sheet. */
+  background: transparent;
+  overflow: hidden;
+}
+
+.lightbox[open] {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+}
+
+.lightbox::backdrop {
+  background: var(--scrim-lightbox);
+}
+
+.lightbox__row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+  width: 100%;
+  min-height: 0;
+}
+
+/* The frame is 640 × 520 in the design and shrinks with the viewport */
+.lightbox__frame {
+  flex: 0 1 640px;
+  aspect-ratio: 640 / 520;
+  min-width: 0;
+  max-height: 100%;
+  border-radius: 6px;
+  background: var(--bg-primary);
+  overflow: clip;
+}
+
+.lightbox__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 6px;
+}
+
+/* All three controls are the same light pill (34 × 32) */
+.lightbox__control {
+  display: flex;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 32px;
+  padding: 0;
+  border: 1px solid var(--border-tertiary);
+  border-radius: var(--radius-button);
+  background: var(--bg-tertiary);
+  overflow: clip;
+  cursor: pointer;
+  transition: background-color 150ms ease, border-color 150ms ease;
+}
+
+.lightbox__control:hover,
+.lightbox__control:focus-visible {
+  background: var(--border-secondary);
+  border-color: var(--border-primary);
+}
+
+.lightbox__close {
+  position: absolute;
+  top: 80px;
+  right: 80px;
+}
+
+.lightbox__icon {
+  width: 16px;
+  height: 16px;
+  background-color: var(--icon-primary);
+  -webkit-mask: var(--lightbox-icon) center / contain no-repeat;
+  mask: var(--lightbox-icon) center / contain no-repeat;
+}
+
+.lightbox__icon--prev {
+  --lightbox-icon: url("assets/icons/arrow-left-s-line.svg");
+}
+
+.lightbox__icon--next {
+  --lightbox-icon: url("assets/icons/arrow-right-s-line.svg");
+}
+
+.lightbox__icon--close {
+  --lightbox-icon: url("assets/icons/close-fill.svg");
+}
+
+/* Counter chip (node 190:4248) */
+.lightbox__counter {
+  flex: 0 0 auto;
+  margin: 0;
+  padding: 2px 8px;
+  border: 1px solid var(--border-primary);
+  border-radius: 6px;
+  background: var(--bg-primary);
+  font-family: var(--font-display);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: normal;
+  color: var(--text-primary);
+  white-space: nowrap;
+}
+
+.lightbox button:focus-visible {
+  outline: 2px solid var(--bg-primary);
+  outline-offset: 2px;
+}
+
+@media (max-width: 860px) {
+  .lightbox {
+    padding: 72px 16px;
+  }
+
+  .lightbox__row {
+    gap: 12px;
+  }
+
+  .lightbox__close {
+    top: 16px;
+    right: 16px;
+  }
+}
+
+/* =================================================================
+   Shared section furniture
+   ================================================================= */
+
+/* Every section below the hero shares the 32px heading */
+.section__heading {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: 32px;
+  font-weight: 600;
+  line-height: normal;
+  color: var(--text-primary);
+}
+
+/* =================================================================
+   O nas (node 110:179), 1440 × 865
+   ================================================================= */
+
+.about {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 24px;
+  width: 100%;
+  padding: 80px var(--gutter-inline);
+  background: var(--bg-tertiary);
+}
+
+.about__body {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 24px;
+  width: 100%;
+}
+
+.about__figure {
+  margin: 0;
+  width: 100%;
+  height: 520px;
+  overflow: clip;
+  border-radius: 8px;
+}
+
+.about__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  /* The crop is pulled up, as framed in the design */
+  object-position: 50% 35%;
+}
+
+/* The pull quote: the opening mark hangs top-left, the closing one
+   bottom-right (nodes 168:285 / 168:296) */
+.quote {
+  display: flex;
+  align-items: stretch;
+  gap: 8px;
+  width: 100%;
+  margin: 0;
+}
+
+.quote__mark {
+  flex: 0 0 auto;
+  width: 24px;
+  height: 24px;
+}
+
+.quote__mark--open {
+  align-self: flex-start;
+}
+
+.quote__mark--close {
+  align-self: flex-end;
+}
+
+.quote__body {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.quote__body p {
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  color: var(--text-primary);
+}
+
+/* =================================================================
+   Lokalizacja (node 110:187), 1440 × 745
+   ================================================================= */
+
+.location {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 24px;
+  width: 100%;
+  padding: 80px var(--gutter-inline);
+  background: var(--bg-muted);
+}
+
+.location__body {
+  display: flex;
+  align-items: flex-start;
+  gap: 24px;
+  width: 100%;
+}
+
+.location__text {
+  display: flex;
+  flex: 1 1 0;
+  min-width: 0;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 32px;
+}
+
+.prose {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+  width: 100%;
+}
+
+.prose__heading {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 24px;
+  color: var(--text-secondary);
+}
+
+.prose__copy {
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  color: var(--text-tertiary);
+}
+
+.location__buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.location__figure {
+  flex: 0 0 auto;
+  margin: 0;
+  width: 640px;
+  height: 520px;
+  overflow: clip;
+  border-radius: 8px;
+}
+
+.location__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* =================================================================
+   Praktyczne informacje (node 110:198), 1440 × 367
+   ================================================================= */
+
+.facts {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 24px;
+  width: 100%;
+  padding: 80px var(--gutter-inline);
+  background: var(--bg-muted);
+}
+
+/* Two rows of three cards in the frame; the grid keeps that shape and
+   folds down on its own as the viewport narrows */
+.facts__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.fact {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  min-height: 100px;
+  padding: 16px;
+  overflow: clip;
+  border: 1px solid var(--border-primary);
+  border-radius: 8px;
+  background: var(--bg-primary);
+}
+
+.fact img {
+  flex: 0 0 auto;
+  width: 40px;
+  height: 40px;
+}
+
+.fact__text {
+  display: flex;
+  flex: 1 1 auto;
+  min-width: 0;
+  flex-direction: column;
+  justify-content: center;
+  gap: 4px;
+  color: var(--text-secondary);
+}
+
+.fact__title {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: 500;
+  line-height: normal;
+  color: inherit;
+}
+
+.fact__copy {
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: normal;
+  color: inherit;
+}
+
+/* =================================================================
+   Zadzwoń do nas (node 110:235), 1440 × 745
+   ================================================================= */
+
+.contact {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 24px;
+  width: 100%;
+  padding: 80px var(--gutter-inline);
+  background: var(--bg-tertiary);
+}
+
+.contact__body {
+  display: flex;
+  align-items: flex-start;
+  gap: 40px;
+  width: 100%;
+  min-height: 520px;
+}
+
+.contact__text {
+  display: flex;
+  flex: 1 1 0;
+  min-width: 0;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 24px;
+}
+
+.contact__text p {
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  color: var(--text-secondary);
+}
+
+/* The phone line (node 181:3244): a 24px mark beside 24px orange digits,
+   on a white card with a 1px rule — 215 × 58 round its own content */
+.contact__phone {
+  display: inline-flex;
+  align-items: flex-end;
+  gap: 8px;
+  padding: 16px;
+  border: 1px solid var(--border-primary);
+  border-radius: 8px;
+  background: var(--bg-primary);
+  font-family: var(--font-body);
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 24px;
+  color: var(--text-warning-primary);
+  text-decoration: none;
+  transition: border-color 150ms ease, box-shadow 150ms ease;
+}
+
+.contact__phone:hover {
+  border-color: var(--border-warning-primary);
+  box-shadow: 0 4px 16px rgba(15, 23, 42, 0.08);
+}
+
+.contact__phone img {
+  flex: 0 0 auto;
+  width: 24px;
+  height: 24px;
+}
+
+/* --- "Albo napisz" form card (node 110:244), 640 × 520 ----------- */
+
+.contact-form {
+  display: flex;
+  flex: 0 0 auto;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 32px;
+  width: 640px;
+  padding: 24px 32px;
+  overflow: clip;
+  border: 1px solid var(--border-secondary);
+  border-radius: 8px;
+  background: var(--bg-secondary);
+}
+
+.contact-form__header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.contact-form__header img {
+  flex: 0 0 auto;
+  width: 40px;
+  height: 40px;
+}
+
+.contact-form__title {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: 24px;
+  font-weight: 500;
+  line-height: normal;
+  color: var(--text-primary);
+}
+
+.contact-form__fields {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 20px;
+  width: 100%;
+}
+
+/* 2px border round a bg/secondary state layer (nodes 181:3023 / 181:3032) */
+.field {
+  position: relative;
+  width: 100%;
+  border: 2px solid var(--border-primary);
+  border-radius: 6px;
+  background: var(--bg-secondary);
+  transition: border-color 150ms ease;
+}
+
+.field--text {
+  height: 56px;
+}
+
+.field--message {
+  height: 228px;
+}
+
+.field__control {
+  display: block;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 4px 16px;
+  border: 0;
+  border-radius: 6px;
+  background: transparent;
+  font-family: var(--font-display);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  color: var(--text-primary);
+  resize: none;
+}
+
+.field--message .field__control {
+  padding-top: 10px;
+}
+
+.field__control:focus {
+  outline: none;
+}
+
+.field__control::placeholder {
+  color: var(--text-placeholder);
+  opacity: 1;
+}
+
+/* Active state (nodes 181:3060 / 181:3068): the border turns orange and the
+   placeholder gives way to the floating label */
+.field:focus-within {
+  border-color: var(--bg-warning-secondary);
+}
+
+.field__control:focus::placeholder {
+  color: transparent;
+}
+
+/* The label is notched into the top border: a 12px chip on the field fill,
+   centred on the 2px rule (node 181:3066, top -15 inside the content box) */
+.field__label {
+  position: absolute;
+  top: -11px;
+  left: 16px;
+  padding: 0 4px;
+  background: var(--bg-secondary);
+  font-family: var(--font-display);
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 20px;
+  color: var(--text-tertiary);
+  white-space: nowrap;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 120ms ease;
+}
+
+/* Shown while the field is focused, and kept once it holds a value */
+.field:focus-within .field__label,
+.field__control:not(:placeholder-shown) + .field__label {
+  opacity: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .field,
+  .field__label {
+    transition: none;
+  }
+}
+
+.contact-form__actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  width: 100%;
+}
+
+/* =================================================================
+   Footer (node 181:3213)
+   Two columns: the brand block (logo top, copyright bottom) against a
+   right-hand stack of the vertical nav over the language switcher.
+   ================================================================= */
+
+.footer {
+  display: flex;
+  align-items: stretch;
+  gap: 8px;
+  width: 100%;
+  padding: 80px var(--gutter-inline);
+  border-top: 1px solid var(--border-primary);
+  background: var(--bg-primary);
+}
+
+.footer__brand {
+  display: flex;
+  flex: 1 1 auto;
+  min-width: 0;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 24px;
+  /* The design leaves a wide gutter before the nav column */
+  padding-right: 170px;
+}
+
+.footer__logo {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+}
+
+.footer__copyright {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: normal;
+  color: var(--text-tertiary);
+}
+
+.footer__end {
+  display: flex;
+  flex: 0 0 auto;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 40px;
+}
+
+.footer__nav {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+.footer__nav-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 4px;
+  color: var(--text-primary);
+  font-family: var(--font-display);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: normal;
+  white-space: nowrap;
+  text-decoration: none;
+  transition: box-shadow 150ms ease;
+}
+
+.footer__nav-link:hover,
+.footer__nav-link:focus-visible {
+  box-shadow: inset 0 -1px 0 var(--nav-link-border);
+}
+
+/* --- Responsive -------------------------------------------------- */
+
+@media (max-width: 1100px) {
+  .facts__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* The design's 170px gutter is too wide once the viewport narrows */
+  .footer__brand {
+    padding-right: 64px;
+  }
+
+  .location__figure {
+    width: 440px;
+    height: 400px;
+  }
+
+  .contact-form {
+    width: 440px;
+  }
+
+  .about__figure {
+    height: 420px;
+  }
+}
+
+@media (max-width: 860px) {
+  .about,
+  .location {
+    padding: 48px var(--gutter-inline);
+  }
+
+  .location__body,
+  .contact__body {
+    flex-direction: column;
+  }
+
+  .location__figure {
+    width: 100%;
+    height: 320px;
+  }
+
+  .contact-form {
+    width: 100%;
+  }
+
+  .contact__body {
+    min-height: 0;
+  }
+
+  .field--message {
+    height: 180px;
+  }
+
+  .footer {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 40px;
+    padding-top: 56px;
+    padding-bottom: 56px;
+  }
+
+  .footer__brand {
+    order: 2;
+    padding-right: 0;
+  }
+
+  .room-details {
+    flex-direction: column;
+    gap: 32px;
+  }
+
+  .room-details__info {
+    width: 100%;
+  }
+}
+
+@media (max-width: 600px) {
+  .facts__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .about,
+  .location,
+  .facts,
+  .contact {
+    padding-top: 40px;
+    padding-bottom: 40px;
+  }
+
+  .rooms {
+    padding: 40px var(--gutter-inline);
+  }
+
+  .about__figure {
+    height: 260px;
+  }
+
+  .section__heading {
+    font-size: 26px;
+  }
+}
+
+/* =================================================================
+   Sticky sub-navigation (node 160:232), 1280 × 74 — appears on scroll
+   4px warning strip (160:230) over the 70px bar (155:299)
+   ================================================================= */
+
+.sticky-header {
+  /* Sits flush against the top edge, full-bleed, with only its bottom
+     corners rounded — exactly as the frame is drawn */
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 50;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  border-radius: 0 0 6px 6px;
+  overflow: clip;
+  /* Unfolds downward from its top edge, as if pushed out of the nav above */
+  transform-origin: 50% 0;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-100%) scaleY(0.86);
+  /* Fallback only: when the animation library drives it, these are overridden */
+  transition: opacity 200ms ease, transform 200ms ease, visibility 200ms;
+}
+
+/* The 4px warning strip above the bar (node 160:230) */
+.sticky-header__accent {
+  flex: 0 0 auto;
+  height: 4px;
+  background: var(--bg-warning-secondary);
+}
+
+/* The bar itself (node 155:299), 70px tall: 12px padding + 46px content */
+.sticky-header__bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  width: 100%;
+  padding: 12px var(--gutter-inline);
+  /* Solid, as drawn: opaque white, no blur */
+  background: var(--bg-primary);
+  /* Kept as a border (not a shadow) so the box stays exactly 70px tall */
+  border-bottom: 1px solid var(--border-primary);
+}
+
+.sticky-header.is-visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0%) scaleY(1);
+}
+
+/* Once the library takes over it owns opacity/transform frame by frame */
+.sticky-header.is-animated {
+  transition: visibility 0s;
+}
+
+.sticky-header__nav {
+  display: flex;
+  flex: 1 0 0;
+  min-width: 0;
+  align-items: center;
+  gap: 20px;
+}
+
+.sticky-header__link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-primary);
+  font-family: var(--font-display);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 18px;
+  padding-bottom: 4px;
+  white-space: nowrap;
+  text-decoration: none;
+  transition: box-shadow 150ms ease;
+}
+
+.sticky-header__link:hover {
+  box-shadow: inset 0 -1px 0 var(--nav-link-border);
+}
+
+/* The 162 × 52 mark sits in a 140 × 45 slot, exactly as drawn: it overhangs
+   the slot rather than shrinking to it */
+.sticky-header__logo .logo {
+  flex: 0 0 auto;
+}
+
+.sticky-header__logo {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 140px;
+  height: 45px;
+  text-decoration: none;
+}
+
+.sticky-header__cta {
+  display: flex;
+  flex: 1 0 0;
+  min-width: 0;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+@media (max-width: 900px) {
+  /* Too narrow for five links beside the mark and the CTA; the compact bar
+     keeps the mark and the booking action */
+  .sticky-header__nav {
+    display: none;
+  }
+
+  .sticky-header__bar {
+    justify-content: space-between;
+  }
+
+  .sticky-header__logo {
+    margin-right: auto;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sticky-header {
+    transition: opacity 200ms ease, visibility 200ms;
+    transform: translateY(0%) scaleY(1);
+  }
+}
+

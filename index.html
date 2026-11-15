@@ -1,0 +1,946 @@
+<!doctype html>
+<html lang="pl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Pokoje gościnne Klaudia — Międzywodzie</title>
+    <meta
+      name="description"
+      content="Pokoje gościnne Klaudia — 350 metrów od plaży w Międzywodziu. Rodzinny pensjonat z prywatnym parkingiem. Ocena gości na Booking.com: 9,2."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600&family=Figtree:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="alternate" hreflang="pl" href="./" />
+    <link rel="alternate" hreflang="de" href="./?lang=de" />
+    <link rel="alternate" hreflang="x-default" href="./" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <!-- Sub-navigation (Figma node 160:232): a 4px warning strip above a
+         70px white bar, pinned flush to the top once the page header scrolls
+         away. -->
+    <header class="sticky-header" id="sticky-header">
+      <div class="sticky-header__accent" aria-hidden="true"></div>
+
+      <div class="sticky-header__bar">
+        <nav class="sticky-header__nav" aria-label="Menu główne (przypięte)">
+          <a class="sticky-header__link" href="#pokoje">Pokoje</a>
+          <a class="sticky-header__link" href="#o-nas">O nas</a>
+          <a class="sticky-header__link" href="#lokalizacja">Lokalizacja</a>
+          <a class="sticky-header__link" href="#dobrze-wiedziec">Dobrze wiedzieć</a>
+          <a class="sticky-header__link" href="#kontakt">Kontakt</a>
+        </nav>
+
+        <a class="sticky-header__logo" href="#top" aria-label="Pokoje gościnne Klaudia — strona główna">
+          <span class="logo">
+            <img class="logo__wordmark" src="assets/icons/logo-group-1.svg" alt="" width="128" height="30" />
+            <img class="logo__tagline" src="assets/icons/logo-group-2.svg" alt="" width="111" height="10" />
+            <img class="logo__rule" src="assets/icons/logo-group-3.svg" alt="" width="162" height="1" />
+          </span>
+        </a>
+
+        <div class="sticky-header__cta">
+          <a class="button button--warning" href="#kontakt">
+            <span>Sprawdź dostępność</span>
+            <span class="button__icon button__icon--arrow-right-up-line" aria-hidden="true"></span>
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <section class="hero" id="top">
+      <!-- Sub-header (Figma node 146:245): orange strip carrying the phone
+           link on the left, and the language switcher plus the Booking.com
+           link on the right. -->
+      <div class="hero__subheader">
+        <div class="hero__subheader-start">
+          <p class="hero__subheader-label">Skontaktuj się z nami</p>
+
+          <a class="button button--link button--sm" href="tel:000000000">
+            <span
+              class="button__icon button__icon--phone-fill"
+              aria-hidden="true"
+            ></span>
+            <span>000 000 000</span>
+          </a>
+        </div>
+
+        <div class="hero__subheader-end">
+          <!-- Language switcher (Figma node 190:3685) -->
+          <div class="language" data-language>
+            <button
+              class="language__toggle"
+              type="button"
+              id="language-toggle"
+              aria-expanded="false"
+              aria-controls="language-menu"
+            >
+              <span class="language__current">
+                <span class="flag" aria-hidden="true">
+                  <img src="assets/icons/flag-pl.svg" alt="" width="22" height="14" />
+                </span>
+                <span class="language__code">PL</span>
+              </span>
+              <span class="language__caret" aria-hidden="true"></span>
+              <span class="visually-hidden">Zmień język</span>
+            </button>
+
+            <!-- Dropdown items (Figma node 190:3652) -->
+            <div
+              class="language__menu"
+              id="language-menu"
+              role="menu"
+              aria-labelledby="language-toggle"
+              hidden
+            >
+              <button
+                class="language__item is-active"
+                type="button"
+                role="menuitemradio"
+                aria-checked="true"
+                lang="pl"
+                data-lang="pl"
+              >
+                <span class="flag" aria-hidden="true">
+                  <img src="assets/icons/flag-pl.svg" alt="" width="22" height="14" />
+                </span>
+                <span class="language__code">PL</span>
+              </button>
+
+              <button
+                class="language__item"
+                type="button"
+                role="menuitemradio"
+                aria-checked="false"
+                lang="de"
+                data-lang="de"
+              >
+                <span class="flag" aria-hidden="true">
+                  <img src="assets/icons/flag-de.svg" alt="" width="22" height="14" />
+                </span>
+                <span class="language__code">DE</span>
+              </button>
+            </div>
+          </div>
+
+          <a
+            class="button button--link button--sm"
+            href="https://www.booking.com/"
+            target="_blank"
+            rel="noopener"
+          >
+            <span>Sprawdź nas na booking.com</span>
+            <span
+              class="button__icon button__icon--arrow-right-up-line"
+              aria-hidden="true"
+            ></span>
+          </a>
+        </div>
+      </div>
+
+      <header class="hero__header">
+        <nav class="hero__nav" aria-label="Menu główne">
+          <a class="hero__nav-link" href="#pokoje">Pokoje</a>
+          <a class="hero__nav-link" href="#o-nas">O nas</a>
+          <a class="hero__nav-link" href="#lokalizacja">Lokalizacja</a>
+          <a class="hero__nav-link" href="#dobrze-wiedziec">Dobrze wiedzieć</a>
+          <a class="hero__nav-link" href="#kontakt">Kontakt</a>
+        </nav>
+
+        <a
+          class="hero__logo"
+          href="#top"
+          aria-label="Pokoje gościnne Klaudia — strona główna"
+        >
+          <span class="logo">
+            <img
+              class="logo__wordmark"
+              src="assets/icons/logo-group-1.svg"
+              alt=""
+              width="128"
+              height="30"
+            />
+            <img
+              class="logo__tagline"
+              src="assets/icons/logo-group-2.svg"
+              alt=""
+              width="111"
+              height="10"
+            />
+            <img
+              class="logo__rule"
+              src="assets/icons/logo-group-3.svg"
+              alt=""
+              width="162"
+              height="1"
+            />
+          </span>
+        </a>
+
+        <div class="hero__header-cta">
+          <a class="button button--warning" href="#kontakt">
+            <span>Skontaktuj się z nami</span>
+            <span class="button__icon button__icon--arrow-right-up-line" aria-hidden="true"></span>
+          </a>
+        </div>
+      </header>
+
+      <div class="hero__container">
+        <div class="hero__media" aria-hidden="true">
+          <!-- Sea footage: Danilo Riba via Pexels (Pexels License, no attribution required). -->
+          <video
+            class="hero__video"
+            id="hero-video"
+            autoplay
+            muted
+            loop
+            playsinline
+            preload="auto"
+          >
+            <source src="assets/video/Test.mov" type="video/mp4" />
+          </video>
+          <div class="hero__scrim"></div>
+        </div>
+
+        <h1 class="hero__title">Pokoje gościnne Klaudia</h1>
+
+        <div class="hero__body">
+          <div class="hero__description">
+            <p>
+              350 metrów od plaży w Międzywodziu, rodzinny pensjonat z prywatnym
+              parkingiem
+            </p>
+            <p>Ocena gości na Booking.com: 9,2</p>
+          </div>
+
+          <div class="hero__buttons">
+            <a class="button button--warning" href="#kontakt">
+              <span>Skontaktuj się z nami</span>
+              <span class="button__icon button__icon--arrow-right-up-line" aria-hidden="true"></span>
+            </a>
+            <a class="button button--info" href="#pokoje">
+              <span>Nasze pokoje</span>
+              <span class="button__icon button__icon--arrow-down-line" aria-hidden="true"></span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <button
+        class="hero__motion-toggle"
+        type="button"
+        aria-pressed="true"
+        aria-label="Zatrzymaj wideo w tle"
+        aria-controls="hero-video"
+      >
+        <img
+          class="hero__motion-icon"
+          src="assets/icons/play-fill.svg"
+          alt=""
+          width="16"
+          height="16"
+        />
+      </button>
+    </section>
+
+
+    <!-- =============================================================
+         Co myślą o nas goście? (node 110:136) — a continuous
+         right-to-left marquee of guest reviews with a play / pause
+         control, as drawn at node 181:3515.
+         ============================================================= -->
+    <section class="reviews" id="opinie">
+      <div class="reviews__header">
+        <h2 class="section__heading">Co myślą o nas goście?</h2>
+
+        <button class="reviews__toggle" type="button" aria-pressed="false" aria-controls="reviews-track">
+          <img
+            class="reviews__toggle-icon"
+            src="assets/icons/pause-circle-fill.svg"
+            alt=""
+            width="16"
+            height="16"
+          />
+          <span class="reviews__toggle-label">Zatrzymaj</span>
+        </button>
+      </div>
+
+      <div class="reviews__viewport">
+        <div class="reviews__track" id="reviews-track">
+          <ul class="reviews__group">
+          <li class="testimonial">
+            <div class="testimonial__head">
+              <span class="avatar" aria-hidden="true">R</span>
+              <div class="testimonial__who">
+                <p class="testimonial__name">robert orzech</p>
+                <p class="testimonial__role">Lokalny przewodnik</p>
+              </div>
+            </div>
+
+            <p class="testimonial__stars" role="img" aria-label="Ocena: 5 na 5 gwiazdek">
+              <img src="assets/icons/star-fill.svg" alt="" width="16" height="16" />
+              <img src="assets/icons/star-fill.svg" alt="" width="16" height="16" />
+              <img src="assets/icons/star-fill.svg" alt="" width="16" height="16" />
+              <img src="assets/icons/star-fill.svg" alt="" width="16" height="16" />
+              <img src="assets/icons/star-fill.svg" alt="" width="16" height="16" />
+            </p>
+
+            <blockquote class="testimonial__copy">Fajne czyste pokoje, wszędzie blisko, pani Klaudia bardzo miła. Pozdrawiam</blockquote>
+          </li>
+          <li class="testimonial">
+            <div class="testimonial__head">
+              <span class="avatar" aria-hidden="true">A</span>
+              <div class="testimonial__who">
+                <p class="testimonial__name">Anna K.</p>
+                <p class="testimonial__role">Gość</p>
+              </div>
+            </div>
+
+            <p class="testimonial__stars" role="img" aria-label="Ocena: 5 na 5 gwiazdek">
+              <img src="assets/icons/star-fill.svg" alt="" width="16" height="16" />
+              <img src="assets/icons/star-fill.svg" alt="" width="16" height="16" />
+              <img src="assets/icons/star-fill.svg" alt="" width="16" height="16" />
+              <img src="assets/icons/star-fill.svg" alt="" width="16" height="16" />
+              <img src="assets/icons/star-fill.svg" alt="" width="16" height="16" />
+            </p>
+
+            <blockquote class="testimonial__copy">Spokojne miejsce kilka minut od plaży. Pokój czysty, gospodarze pomocni i życzliwi.</blockquote>
+          </li>
+          <li class="testimonial">
+            <div class="testimonial__head">
+              <span class="avatar" aria-hidden="true">M</span>
+              <div class="testimonial__who">
+                <p class="testimonial__name">Marek W.</p>
+                <p class="testimonial__role">Gość</p>
+              </div>
+            </div>
+
+            <p class="testimonial__stars" role="img" aria-label="Ocena: 5 na 5 gwiazdek">
+              <img src="assets/icons/star-fill.svg" alt="" width="16" height="16" />
+              <img src="assets/icons/star-fill.svg" alt="" width="16" height="16" />
+              <img src="assets/icons/star-fill.svg" alt="" width="16" height="16" />
+              <img src="assets/icons/star-fill.svg" alt="" width="16" height="16" />
+              <img src="assets/icons/star-fill.svg" alt="" width="16" height="16" />
+            </p>
+
+            <blockquote class="testimonial__copy">Bardzo dobry stosunek jakości do ceny. Parking na miejscu, do centrum i na plażę blisko.</blockquote>
+          </li>
+          <li class="testimonial">
+            <div class="testimonial__head">
+              <span class="avatar" aria-hidden="true">J</span>
+              <div class="testimonial__who">
+                <p class="testimonial__name">Joanna S.</p>
+                <p class="testimonial__role">Lokalny przewodnik</p>
+              </div>
+            </div>
+
+            <p class="testimonial__stars" role="img" aria-label="Ocena: 5 na 5 gwiazdek">
+              <img src="assets/icons/star-fill.svg" alt="" width="16" height="16" />
+              <img src="assets/icons/star-fill.svg" alt="" width="16" height="16" />
+              <img src="assets/icons/star-fill.svg" alt="" width="16" height="16" />
+              <img src="assets/icons/star-fill.svg" alt="" width="16" height="16" />
+              <img src="assets/icons/star-fill.svg" alt="" width="16" height="16" />
+            </p>
+
+            <blockquote class="testimonial__copy">Wracamy tu kolejny sezon. Czysto, cicho, a gospodarze zawsze doradzą, co warto zobaczyć.</blockquote>
+          </li>
+          <li class="testimonial">
+            <div class="testimonial__head">
+              <span class="avatar" aria-hidden="true">P</span>
+              <div class="testimonial__who">
+                <p class="testimonial__name">Piotr N.</p>
+                <p class="testimonial__role">Gość</p>
+              </div>
+            </div>
+
+            <p class="testimonial__stars" role="img" aria-label="Ocena: 5 na 5 gwiazdek">
+              <img src="assets/icons/star-fill.svg" alt="" width="16" height="16" />
+              <img src="assets/icons/star-fill.svg" alt="" width="16" height="16" />
+              <img src="assets/icons/star-fill.svg" alt="" width="16" height="16" />
+              <img src="assets/icons/star-fill.svg" alt="" width="16" height="16" />
+              <img src="assets/icons/star-fill.svg" alt="" width="16" height="16" />
+            </p>
+
+            <blockquote class="testimonial__copy">Wygodne łóżka i dobrze wyposażona kuchnia. Świetna baza na rodzinny wypoczynek nad morzem.</blockquote>
+          </li>
+          <li class="testimonial">
+            <div class="testimonial__head">
+              <span class="avatar" aria-hidden="true">K</span>
+              <div class="testimonial__who">
+                <p class="testimonial__name">Katarzyna L.</p>
+                <p class="testimonial__role">Gość</p>
+              </div>
+            </div>
+
+            <p class="testimonial__stars" role="img" aria-label="Ocena: 5 na 5 gwiazdek">
+              <img src="assets/icons/star-fill.svg" alt="" width="16" height="16" />
+              <img src="assets/icons/star-fill.svg" alt="" width="16" height="16" />
+              <img src="assets/icons/star-fill.svg" alt="" width="16" height="16" />
+              <img src="assets/icons/star-fill.svg" alt="" width="16" height="16" />
+              <img src="assets/icons/star-fill.svg" alt="" width="16" height="16" />
+            </p>
+
+            <blockquote class="testimonial__copy">Miła atmosfera i zadbany ogród z grillem. Dzieci były zachwycone, na pewno wrócimy.</blockquote>
+          </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="rooms" id="pokoje">
+      <h2 class="rooms__heading">Pokoje</h2>
+
+      <div class="rooms__body">
+        <div class="rooms__filters" role="tablist" aria-label="Typ pokoju">
+          <button
+            class="chip chip--active"
+            type="button"
+            role="tab"
+            id="tab-jednoosobowy"
+            data-room="jednoosobowy"
+            aria-selected="true"
+            aria-controls="room-panel"
+            tabindex="0"
+          >
+            Jednoosobowy
+          </button>
+          <button
+            class="chip"
+            type="button"
+            role="tab"
+            id="tab-dwuosobowy"
+            data-room="dwuosobowy"
+            aria-selected="false"
+            aria-controls="room-panel"
+            tabindex="-1"
+          >
+            Dwuosobowy
+          </button>
+          <button
+            class="chip"
+            type="button"
+            role="tab"
+            id="tab-trzyosobowy"
+            data-room="trzyosobowy"
+            aria-selected="false"
+            aria-controls="room-panel"
+            tabindex="-1"
+          >
+            Trzyosobowy
+          </button>
+          <button
+            class="chip"
+            type="button"
+            role="tab"
+            id="tab-czteroosobowy"
+            data-room="czteroosobowy"
+            aria-selected="false"
+            aria-controls="room-panel"
+            tabindex="-1"
+          >
+            Czteroosobowy
+          </button>
+        </div>
+
+        <div
+          class="rooms__content"
+          id="room-panel"
+          role="tabpanel"
+          aria-labelledby="tab-jednoosobowy"
+        >
+          <div class="gallery">
+            <figure class="gallery__main">
+              <button class="gallery__trigger" type="button" aria-label="Powiększ zdjęcie">
+                <img src="assets/images/room-main.jpg" alt="Pokój jednoosobowy — widok ogólny" />
+              </button>
+            </figure>
+
+            <div class="gallery__grid">
+              <figure class="gallery__cell">
+                <button class="gallery__trigger" type="button" aria-label="Powiększ zdjęcie">
+                  <img src="assets/images/room-2.jpg" alt="Pokój jednoosobowy — część wypoczynkowa" />
+                </button>
+              </figure>
+              <figure class="gallery__cell">
+                <button class="gallery__trigger" type="button" aria-label="Powiększ zdjęcie">
+                  <img src="assets/images/room-3.jpg" alt="Pokój jednoosobowy — widok od strony okna" />
+                </button>
+              </figure>
+              <figure class="gallery__cell">
+                <button class="gallery__trigger" type="button" aria-label="Powiększ zdjęcie">
+                  <img src="assets/images/room-4.jpg" alt="Pokój jednoosobowy — łóżko" />
+                </button>
+              </figure>
+              <figure class="gallery__cell">
+                <button class="gallery__trigger" type="button" aria-label="Powiększ zdjęcie">
+                  <img src="assets/images/room-5.jpg" alt="Pokój jednoosobowy — wnętrze z telewizorem" />
+                </button>
+              </figure>
+            </div>
+          </div>
+
+          <div class="room-details">
+            <div class="room-details__info">
+              <div class="room-details__titles">
+                <h3 class="room-details__name">Pokój jednoosobowy</h3>
+                <p class="room-details__subtitle">Co znajdziesz w tym pokoju?</p>
+              </div>
+
+              <ul class="amenities">
+                <li>
+                  <img src="assets/icons/hotel-bed-fill.svg" alt="" width="16" height="16" />
+                  <span>1 łóżko</span>
+                </li>
+                <li>
+                  <img src="assets/icons/bath-fill.svg" alt="" width="16" height="16" />
+                  <span>1 łazienka</span>
+                </li>
+                <li>
+                  <img src="assets/icons/tv-2-fill.svg" alt="" width="16" height="16" />
+                  <span>Telewizor</span>
+                </li>
+                <li>
+                  <img src="assets/icons/wifi-fill.svg" alt="" width="16" height="16" />
+                  <span>Wi-Fi</span>
+                </li>
+              </ul>
+
+              <p class="room-details__price">od 180zł / noc</p>
+
+              <a class="button button--warning" href="#kontakt">
+                <span>Skontaktuj się z nami</span>
+                <span class="button__icon button__icon--arrow-right-up-line" aria-hidden="true"></span>
+              </a>
+            </div>
+
+            <div class="room-description">
+              <h4 class="room-description__heading">Opis pokoju</h4>
+              <p class="room-description__copy">
+                Przytulny i komfortowy pokój jednoosobowy, idealny dla osób
+                podróżujących służbowo lub turystycznie. Starannie urządzone
+                wnętrze zapewnia przestrzeń do odpoczynku i relaksu po
+                intensywnym dniu. Pokój wyposażony jest w wygodne łóżko,
+                prywatną łazienkę, telewizor oraz bezpłatny dostęp do Wi-Fi. To
+                doskonały wybór dla osób ceniących wygodę, funkcjonalność i
+                spokojną atmosferę podczas pobytu.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- =============================================================
+         O nas (node 110:179)
+         ============================================================= -->
+    <section class="about" id="o-nas">
+      <h2 class="section__heading">O nas</h2>
+
+      <div class="about__body">
+        <figure class="about__figure">
+          <img
+            class="about__image"
+            src="assets/images/about-family.jpg"
+            alt="Gospodarze pensjonatu z dziećmi w ogrodzie"
+            width="1280"
+            height="520"
+            loading="lazy"
+          />
+        </figure>
+
+        <blockquote class="quote">
+          <img
+            class="quote__mark quote__mark--open"
+            src="assets/icons/double-quotes-l.svg"
+            alt=""
+            width="24"
+            height="24"
+          />
+
+          <div class="quote__body">
+            <p>
+              Od wielu lat działamy w branży turystycznej, oferując naszym
+              gościom komfortowy pobyt i przyjazną atmosferę. Z dumą gościmy
+              zarówno osoby z różnych zakątków Polski, jak i turystów z
+              zagranicy. Wieloletnie doświadczenie pozwoliło nam dobrze poznać
+              potrzeby naszych gości i zdobyć ich zaufanie.
+            </p>
+            <p>
+              Stawiamy na profesjonalną obsługę, indywidualne podejście oraz
+              najwyższą jakość świadczonych usług. Zależy nam, aby każdy, kto
+              nas odwiedza, czuł się swobodnie i chciał do nas wracać.
+            </p>
+          </div>
+
+          <img
+            class="quote__mark quote__mark--close"
+            src="assets/icons/double-quotes-r.svg"
+            alt=""
+            width="24"
+            height="24"
+          />
+        </blockquote>
+      </div>
+    </section>
+
+    <!-- =============================================================
+         Lokalizacja (node 110:187)
+         ============================================================= -->
+    <section class="location" id="lokalizacja">
+      <h2 class="section__heading">Lokalizacja</h2>
+
+      <div class="location__body">
+        <div class="location__text">
+          <div class="prose">
+            <h3 class="prose__heading">Wyjątkowe miejsce nad bałtykiem</h3>
+            <p class="prose__copy">
+              Międzywodzie to malownicza nadmorska miejscowość położona na
+              wyspie Wolin, między Morzem Bałtyckim a Zalewem Kamieńskim. To
+              idealne miejsce dla osób szukających wypoczynku blisko natury,
+              pięknych plaż i spokojnej atmosfery.
+            </p>
+          </div>
+
+          <div class="prose">
+            <h3 class="prose__heading">Plaże, natura i relaks</h3>
+            <p class="prose__copy">
+              Szerokie, piaszczyste plaże, otaczające miejscowość lasy oraz
+              nadmorski klimat sprawiają, że Międzywodzie jest doskonałym
+              kierunkiem zarówno na rodzinne wakacje, jak i romantyczny wyjazd
+              czy weekendowy odpoczynek.
+            </p>
+          </div>
+
+          <div class="prose">
+            <h3 class="prose__heading">
+              Wszystko, czego potrzebujesz do wypoczynku
+            </h3>
+            <p class="prose__copy">
+              Na gości czekają lokalne restauracje, kawiarnie i atrakcje
+              turystyczne. Dzięki swojemu położeniu Międzywodzie pozwala
+              połączyć błogi relaks nad morzem z aktywnym odkrywaniem uroków
+              polskiego wybrzeża.
+            </p>
+          </div>
+
+          <div class="location__buttons">
+            <a class="button button--warning" href="#kontakt">
+              <span class="button__icon button__icon--phone-fill-warning" aria-hidden="true"></span>
+              <span>Skontaktuj się z nami</span>
+            </a>
+            <a
+              class="button button--info"
+              href="https://www.google.com/maps/dir/?api=1&amp;destination=Mi%C4%99dzywodzie"
+              target="_blank"
+              rel="noopener"
+            >
+              <span class="button__icon button__icon--map-pin-fill" aria-hidden="true"></span>
+              <span>Pokaż trasę</span>
+            </a>
+          </div>
+        </div>
+
+        <figure class="location__figure">
+          <img
+            class="location__image"
+            src="assets/images/location-aerial.jpg"
+            alt="Międzywodzie z lotu ptaka — plaża i zabudowa nad Bałtykiem"
+            width="640"
+            height="520"
+            loading="lazy"
+          />
+        </figure>
+      </div>
+    </section>
+
+    <!-- =============================================================
+         Praktyczne informacje (node 110:198)
+         ============================================================= -->
+    <section class="facts" id="dobrze-wiedziec">
+      <h2 class="section__heading">Praktyczne informacje</h2>
+
+      <ul class="facts__grid">
+        <li class="fact">
+          <img src="assets/icons/key-fill.svg" alt="" width="40" height="40" />
+          <div class="fact__text">
+            <h3 class="fact__title">Zakwaterowanie</h3>
+            <p class="fact__copy">Zameldowanie od 15:00, wymeldowanie do 10:00.</p>
+          </div>
+        </li>
+        <li class="fact">
+          <img src="assets/icons/pin-distance-fill.svg" alt="" width="40" height="40" />
+          <div class="fact__text">
+            <h3 class="fact__title">Odległość od plaży</h3>
+            <p class="fact__copy">Pensjonat znajduje się 300m od plaży.</p>
+          </div>
+        </li>
+        <li class="fact">
+          <img src="assets/icons/parking-box-fill.svg" alt="" width="40" height="40" />
+          <div class="fact__text">
+            <h3 class="fact__title">Parking</h3>
+            <p class="fact__copy">
+              Posiadamy prywatny parking dostępny dla naszych gości.
+            </p>
+          </div>
+        </li>
+        <li class="fact">
+          <img src="assets/icons/sailboat-fill.svg" alt="" width="40" height="40" />
+          <div class="fact__text">
+            <h3 class="fact__title">Zalew Kamieński</h3>
+            <p class="fact__copy">500m od Zalewu Kamieńskiego.</p>
+          </div>
+        </li>
+        <li class="fact">
+          <img src="assets/icons/restaurant-fill.svg" alt="" width="40" height="40" />
+          <div class="fact__text">
+            <h3 class="fact__title">Miejsce do grillowania</h3>
+            <p class="fact__copy">Dostępny jest grill na świeżym powietrzu.</p>
+          </div>
+        </li>
+        <li class="fact">
+          <img src="assets/icons/wifi-fill-40.svg" alt="" width="40" height="40" />
+          <div class="fact__text">
+            <h3 class="fact__title">Udogodnienia</h3>
+            <p class="fact__copy">
+              Wifi, dostęp do kuchenki, lodówka, ręczniki...
+            </p>
+          </div>
+        </li>
+      </ul>
+    </section>
+
+    <!-- =============================================================
+         Zadzwoń do nas (node 110:235)
+         ============================================================= -->
+    <section class="contact" id="kontakt">
+      <h2 class="section__heading">Zadzwoń do nas</h2>
+
+      <div class="contact__body">
+        <div class="contact__text">
+          <p>
+            Chętnie odpowiemy na wszystkie Twoje pytania dotyczące dostępności
+            pokoi, rezerwacji oraz pobytu w naszym obiekcie. Zadzwoń do nas –
+            pomożemy Ci zaplanować udany wypoczynek nad morzem!
+          </p>
+
+          <a class="contact__phone" href="tel:000000000">
+            <img src="assets/icons/phone-fill-24.svg" alt="" width="24" height="24" />
+            <span>000 000 000</span>
+          </a>
+        </div>
+
+        <!-- Form card (node 110:244) -->
+        <form class="contact-form" action="#" method="post">
+          <div class="contact-form__header">
+            <img src="assets/icons/pencil-fill.svg" alt="" width="40" height="40" />
+            <h3 class="contact-form__title">Albo napisz</h3>
+          </div>
+
+          <div class="contact-form__fields">
+            <!-- Default / Hover / Active states: nodes 181:3040, 181:3043,
+                 181:3060. The label is notched into the top border once the
+                 field is focused or filled. -->
+            <div class="field field--text">
+              <input
+                class="field__control"
+                id="contact-email"
+                type="email"
+                name="email"
+                placeholder="Email"
+                required
+              />
+              <label class="field__label" for="contact-email">Email</label>
+            </div>
+
+            <div class="field field--message">
+              <textarea
+                class="field__control"
+                id="contact-message"
+                name="message"
+                placeholder="Wiadomość"
+                required
+              ></textarea>
+              <label class="field__label" for="contact-message">Wiadomość</label>
+            </div>
+          </div>
+
+          <div class="contact-form__actions">
+            <button class="button button--warning" type="submit">
+              <span>Wyślij</span>
+              <span class="button__icon button__icon--arrow-right-down-line" aria-hidden="true"></span>
+            </button>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <!-- =============================================================
+         Stopka (node 181:3213)
+         ============================================================= -->
+    <footer class="footer">
+      <div class="footer__brand">
+        <a
+          class="footer__logo"
+          href="#top"
+          aria-label="Pokoje gościnne Klaudia — strona główna"
+        >
+          <span class="logo">
+            <img
+              class="logo__wordmark"
+              src="assets/icons/logo-group-1.svg"
+              alt=""
+              width="128"
+              height="30"
+            />
+            <img
+              class="logo__tagline"
+              src="assets/icons/logo-group-2.svg"
+              alt=""
+              width="111"
+              height="10"
+            />
+            <img
+              class="logo__rule"
+              src="assets/icons/logo-group-3.svg"
+              alt=""
+              width="162"
+              height="1"
+            />
+          </span>
+        </a>
+
+        <p class="footer__copyright">
+          © 2026 Pokoje gościnne Klaudia. Wszelkie prawa zastrzeżone.
+        </p>
+      </div>
+
+      <div class="footer__end">
+        <!-- Vertical navigation (Figma node 190:3999) -->
+        <nav class="footer__nav" aria-label="Menu w stopce">
+          <a class="footer__nav-link" href="#pokoje">Pokoje</a>
+          <a class="footer__nav-link" href="#o-nas">O nas</a>
+          <a class="footer__nav-link" href="#lokalizacja">Lokalizacja</a>
+          <a class="footer__nav-link" href="#dobrze-wiedziec">Dobrze wiedzieć</a>
+          <a class="footer__nav-link" href="#kontakt">Kontakt</a>
+        </nav>
+
+        <!-- Language switcher (Figma node 190:4022) -->
+        <div class="language language--dark" data-language>
+          <button
+            class="language__toggle"
+            type="button"
+            id="language-toggle-footer"
+            aria-expanded="false"
+            aria-controls="language-menu-footer"
+          >
+            <span class="language__current">
+              <span class="flag" aria-hidden="true">
+                <img src="assets/icons/flag-pl.svg" alt="" width="22" height="14" />
+              </span>
+              <span class="language__code">PL</span>
+            </span>
+            <span class="language__caret" aria-hidden="true"></span>
+            <span class="visually-hidden">Zmień język</span>
+          </button>
+
+          <div
+            class="language__menu"
+            id="language-menu-footer"
+            role="menu"
+            aria-labelledby="language-toggle-footer"
+            hidden
+          >
+            <button
+              class="language__item is-active"
+              type="button"
+              role="menuitemradio"
+              aria-checked="true"
+              lang="pl"
+              data-lang="pl"
+            >
+              <span class="flag" aria-hidden="true">
+                <img src="assets/icons/flag-pl.svg" alt="" width="22" height="14" />
+              </span>
+              <span class="language__code">PL</span>
+            </button>
+
+            <button
+              class="language__item"
+              type="button"
+              role="menuitemradio"
+              aria-checked="false"
+              lang="de"
+              data-lang="de"
+            >
+              <span class="flag" aria-hidden="true">
+                <img src="assets/icons/flag-de.svg" alt="" width="22" height="14" />
+              </span>
+              <span class="language__code">DE</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- =============================================================
+         Galeria — pełnoekranowy podgląd zdjęcia (node 190:4243).
+         Strzałki stoją obok zdjęcia, licznik pod nim, zamknięcie
+         w prawym górnym rogu, 80px od krawędzi.
+         ============================================================= -->
+    <dialog class="lightbox" id="lightbox" aria-label="Galeria zdjęć">
+      <div class="lightbox__row">
+        <button
+          class="lightbox__control lightbox__prev"
+          type="button"
+          aria-label="Poprzednie zdjęcie"
+        >
+          <span
+            class="lightbox__icon lightbox__icon--prev"
+            aria-hidden="true"
+          ></span>
+        </button>
+
+        <div class="lightbox__frame">
+          <img class="lightbox__image" id="lightbox-image" src="" alt="" />
+        </div>
+
+        <button
+          class="lightbox__control lightbox__next"
+          type="button"
+          aria-label="Następne zdjęcie"
+        >
+          <span
+            class="lightbox__icon lightbox__icon--next"
+            aria-hidden="true"
+          ></span>
+        </button>
+      </div>
+
+      <p class="lightbox__counter" id="lightbox-counter" aria-live="polite"></p>
+
+      <button
+        class="lightbox__control lightbox__close"
+        type="button"
+        aria-label="Zamknij galerię"
+      >
+        <span
+          class="lightbox__icon lightbox__icon--close"
+          aria-hidden="true"
+        ></span>
+      </button>
+    </dialog>
+
+    <!-- i18n.js first: the others ask it for their strings -->
+    <script src="i18n.js"></script>
+    <script src="main.js"></script>
+    <script src="language.js"></script>
+    <script src="rooms.js"></script>
+    <script src="reviews.js"></script>
+    <script type="module" src="sticky-nav.js"></script>
+  </body>
+</html>
