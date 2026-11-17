@@ -45,8 +45,8 @@
 
         <div class="sticky-header__cta">
           <a class="button button--warning" href="#kontakt">
+            <span class="button__icon button__icon--phone-fill-warning" aria-hidden="true"></span>
             <span>Sprawdź dostępność</span>
-            <span class="button__icon button__icon--arrow-right-up-line" aria-hidden="true"></span>
           </a>
         </div>
       </div>
@@ -183,8 +183,8 @@
 
         <div class="hero__header-cta">
           <a class="button button--warning" href="#kontakt">
+            <span class="button__icon button__icon--phone-fill-warning" aria-hidden="true"></span>
             <span>Skontaktuj się z nami</span>
-            <span class="button__icon button__icon--arrow-right-up-line" aria-hidden="true"></span>
           </a>
         </div>
       </header>
@@ -219,8 +219,8 @@
 
           <div class="hero__buttons">
             <a class="button button--warning" href="#kontakt">
+              <span class="button__icon button__icon--phone-fill-warning" aria-hidden="true"></span>
               <span>Skontaktuj się z nami</span>
-              <span class="button__icon button__icon--arrow-right-up-line" aria-hidden="true"></span>
             </a>
             <a class="button button--info" href="#pokoje">
               <span>Nasze pokoje</span>
@@ -249,13 +249,160 @@
 
 
     <!-- =============================================================
-         Co myślą o nas goście? (node 110:136) — a continuous
+         Pokoje (node 254:5785) — the gallery, the room filters and the
+         details of the selected room.
+         ============================================================= -->
+    <section class="rooms" id="pokoje">
+      <h2 class="rooms__heading">Pokoje</h2>
+
+      <div class="rooms__body">
+        <div class="rooms__filters" role="tablist" aria-label="Typ pokoju">
+          <button
+            class="chip chip--active"
+            type="button"
+            role="tab"
+            id="tab-jednoosobowy"
+            data-room="jednoosobowy"
+            aria-selected="true"
+            aria-controls="room-panel"
+            tabindex="0"
+          >
+            Jednoosobowy
+          </button>
+          <button
+            class="chip"
+            type="button"
+            role="tab"
+            id="tab-dwuosobowy"
+            data-room="dwuosobowy"
+            aria-selected="false"
+            aria-controls="room-panel"
+            tabindex="-1"
+          >
+            Dwuosobowy
+          </button>
+          <button
+            class="chip"
+            type="button"
+            role="tab"
+            id="tab-trzyosobowy"
+            data-room="trzyosobowy"
+            aria-selected="false"
+            aria-controls="room-panel"
+            tabindex="-1"
+          >
+            Trzyosobowy
+          </button>
+          <button
+            class="chip"
+            type="button"
+            role="tab"
+            id="tab-czteroosobowy"
+            data-room="czteroosobowy"
+            aria-selected="false"
+            aria-controls="room-panel"
+            tabindex="-1"
+          >
+            Czteroosobowy
+          </button>
+        </div>
+
+        <div
+          class="rooms__content"
+          id="room-panel"
+          role="tabpanel"
+          aria-labelledby="tab-jednoosobowy"
+        >
+          <div class="gallery">
+            <figure class="gallery__main">
+              <button class="gallery__trigger" type="button" aria-label="Powiększ zdjęcie">
+                <img src="assets/images/room-main.jpg" alt="Pokój jednoosobowy — widok ogólny" />
+              </button>
+            </figure>
+
+            <div class="gallery__grid">
+              <figure class="gallery__cell">
+                <button class="gallery__trigger" type="button" aria-label="Powiększ zdjęcie">
+                  <img src="assets/images/room-2.jpg" alt="Pokój jednoosobowy — część wypoczynkowa" />
+                </button>
+              </figure>
+              <figure class="gallery__cell">
+                <button class="gallery__trigger" type="button" aria-label="Powiększ zdjęcie">
+                  <img src="assets/images/room-3.jpg" alt="Pokój jednoosobowy — widok od strony okna" />
+                </button>
+              </figure>
+              <figure class="gallery__cell">
+                <button class="gallery__trigger" type="button" aria-label="Powiększ zdjęcie">
+                  <img src="assets/images/room-4.jpg" alt="Pokój jednoosobowy — łóżko" />
+                </button>
+              </figure>
+              <figure class="gallery__cell">
+                <button class="gallery__trigger" type="button" aria-label="Powiększ zdjęcie">
+                  <img src="assets/images/room-5.jpg" alt="Pokój jednoosobowy — wnętrze z telewizorem" />
+                </button>
+              </figure>
+            </div>
+          </div>
+
+          <div class="room-details">
+            <div class="room-details__info">
+              <div class="room-details__titles">
+                <h3 class="room-details__name">Pokój jednoosobowy</h3>
+                <p class="room-details__subtitle">Co znajdziesz w tym pokoju?</p>
+              </div>
+
+              <ul class="amenities">
+                <li>
+                  <img src="assets/icons/hotel-bed-fill.svg" alt="" width="16" height="16" />
+                  <span>1 łóżko</span>
+                </li>
+                <li>
+                  <img src="assets/icons/bath-fill.svg" alt="" width="16" height="16" />
+                  <span>1 łazienka</span>
+                </li>
+                <li>
+                  <img src="assets/icons/tv-2-fill.svg" alt="" width="16" height="16" />
+                  <span>Telewizor</span>
+                </li>
+                <li>
+                  <img src="assets/icons/wifi-fill.svg" alt="" width="16" height="16" />
+                  <span>Wi-Fi</span>
+                </li>
+              </ul>
+
+              <p class="room-details__price">od 180zł / noc</p>
+
+              <a class="button button--warning" href="#kontakt">
+                <span class="button__icon button__icon--phone-fill-warning" aria-hidden="true"></span>
+                <span>Skontaktuj się z nami</span>
+              </a>
+            </div>
+
+            <div class="room-description">
+              <h4 class="room-description__heading">Opis pokoju</h4>
+              <p class="room-description__copy">
+                Przytulny i komfortowy pokój jednoosobowy, idealny dla osób
+                podróżujących służbowo lub turystycznie. Starannie urządzone
+                wnętrze zapewnia przestrzeń do odpoczynku i relaksu po
+                intensywnym dniu. Pokój wyposażony jest w wygodne łóżko,
+                prywatną łazienkę, telewizor oraz bezpłatny dostęp do Wi-Fi. To
+                doskonały wybór dla osób ceniących wygodę, funkcjonalność i
+                spokojną atmosferę podczas pobytu.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =============================================================
+         Co myślą goście? (node 254:5833) — a continuous
          right-to-left marquee of guest reviews with a play / pause
          control, as drawn at node 181:3515.
          ============================================================= -->
     <section class="reviews" id="opinie">
       <div class="reviews__header">
-        <h2 class="section__heading">Co myślą o nas goście?</h2>
+        <h2 class="section__heading">Co myślą goście?</h2>
 
         <button class="reviews__toggle" type="button" aria-pressed="false" aria-controls="reviews-track">
           <img
@@ -387,149 +534,6 @@
             <blockquote class="testimonial__copy">Miła atmosfera i zadbany ogród z grillem. Dzieci były zachwycone, na pewno wrócimy.</blockquote>
           </li>
           </ul>
-        </div>
-      </div>
-    </section>
-
-    <section class="rooms" id="pokoje">
-      <h2 class="rooms__heading">Pokoje</h2>
-
-      <div class="rooms__body">
-        <div class="rooms__filters" role="tablist" aria-label="Typ pokoju">
-          <button
-            class="chip chip--active"
-            type="button"
-            role="tab"
-            id="tab-jednoosobowy"
-            data-room="jednoosobowy"
-            aria-selected="true"
-            aria-controls="room-panel"
-            tabindex="0"
-          >
-            Jednoosobowy
-          </button>
-          <button
-            class="chip"
-            type="button"
-            role="tab"
-            id="tab-dwuosobowy"
-            data-room="dwuosobowy"
-            aria-selected="false"
-            aria-controls="room-panel"
-            tabindex="-1"
-          >
-            Dwuosobowy
-          </button>
-          <button
-            class="chip"
-            type="button"
-            role="tab"
-            id="tab-trzyosobowy"
-            data-room="trzyosobowy"
-            aria-selected="false"
-            aria-controls="room-panel"
-            tabindex="-1"
-          >
-            Trzyosobowy
-          </button>
-          <button
-            class="chip"
-            type="button"
-            role="tab"
-            id="tab-czteroosobowy"
-            data-room="czteroosobowy"
-            aria-selected="false"
-            aria-controls="room-panel"
-            tabindex="-1"
-          >
-            Czteroosobowy
-          </button>
-        </div>
-
-        <div
-          class="rooms__content"
-          id="room-panel"
-          role="tabpanel"
-          aria-labelledby="tab-jednoosobowy"
-        >
-          <div class="gallery">
-            <figure class="gallery__main">
-              <button class="gallery__trigger" type="button" aria-label="Powiększ zdjęcie">
-                <img src="assets/images/room-main.jpg" alt="Pokój jednoosobowy — widok ogólny" />
-              </button>
-            </figure>
-
-            <div class="gallery__grid">
-              <figure class="gallery__cell">
-                <button class="gallery__trigger" type="button" aria-label="Powiększ zdjęcie">
-                  <img src="assets/images/room-2.jpg" alt="Pokój jednoosobowy — część wypoczynkowa" />
-                </button>
-              </figure>
-              <figure class="gallery__cell">
-                <button class="gallery__trigger" type="button" aria-label="Powiększ zdjęcie">
-                  <img src="assets/images/room-3.jpg" alt="Pokój jednoosobowy — widok od strony okna" />
-                </button>
-              </figure>
-              <figure class="gallery__cell">
-                <button class="gallery__trigger" type="button" aria-label="Powiększ zdjęcie">
-                  <img src="assets/images/room-4.jpg" alt="Pokój jednoosobowy — łóżko" />
-                </button>
-              </figure>
-              <figure class="gallery__cell">
-                <button class="gallery__trigger" type="button" aria-label="Powiększ zdjęcie">
-                  <img src="assets/images/room-5.jpg" alt="Pokój jednoosobowy — wnętrze z telewizorem" />
-                </button>
-              </figure>
-            </div>
-          </div>
-
-          <div class="room-details">
-            <div class="room-details__info">
-              <div class="room-details__titles">
-                <h3 class="room-details__name">Pokój jednoosobowy</h3>
-                <p class="room-details__subtitle">Co znajdziesz w tym pokoju?</p>
-              </div>
-
-              <ul class="amenities">
-                <li>
-                  <img src="assets/icons/hotel-bed-fill.svg" alt="" width="16" height="16" />
-                  <span>1 łóżko</span>
-                </li>
-                <li>
-                  <img src="assets/icons/bath-fill.svg" alt="" width="16" height="16" />
-                  <span>1 łazienka</span>
-                </li>
-                <li>
-                  <img src="assets/icons/tv-2-fill.svg" alt="" width="16" height="16" />
-                  <span>Telewizor</span>
-                </li>
-                <li>
-                  <img src="assets/icons/wifi-fill.svg" alt="" width="16" height="16" />
-                  <span>Wi-Fi</span>
-                </li>
-              </ul>
-
-              <p class="room-details__price">od 180zł / noc</p>
-
-              <a class="button button--warning" href="#kontakt">
-                <span>Skontaktuj się z nami</span>
-                <span class="button__icon button__icon--arrow-right-up-line" aria-hidden="true"></span>
-              </a>
-            </div>
-
-            <div class="room-description">
-              <h4 class="room-description__heading">Opis pokoju</h4>
-              <p class="room-description__copy">
-                Przytulny i komfortowy pokój jednoosobowy, idealny dla osób
-                podróżujących służbowo lub turystycznie. Starannie urządzone
-                wnętrze zapewnia przestrzeń do odpoczynku i relaksu po
-                intensywnym dniu. Pokój wyposażony jest w wygodne łóżko,
-                prywatną łazienkę, telewizor oraz bezpłatny dostęp do Wi-Fi. To
-                doskonały wybór dla osób ceniących wygodę, funkcjonalność i
-                spokojną atmosferę podczas pobytu.
-              </p>
-            </div>
-          </div>
         </div>
       </div>
     </section>

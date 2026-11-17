@@ -34,6 +34,9 @@
   --bg-secondary-hover: #f1f5f9;
   --text-secondary-hover: #334155;
 
+  /* blue/900 — the sub-header strip and the contact cards (node 254:5771) */
+  --blue-900: #1e3a8a;
+
   --grays-black: #000000;
   --text-placeholder: #94a3b8;
   --text-tertiary: #64748b;
@@ -114,7 +117,7 @@ img {
   gap: 16px;
   width: 100%;
   padding: 0 var(--gutter-inline);
-  background: var(--bg-warning-secondary);
+  background: var(--blue-900);
   color: var(--text-on-dark);
   font-family: var(--font-display);
 }
@@ -428,7 +431,7 @@ img {
   color: var(--text-info-primary-hover);
 }
 
-/* Link state: no fill, underlined white label on the orange strip */
+/* Link state: no fill, underlined white label on the blue strip */
 .button--link {
   background: none;
   border-color: transparent;
@@ -961,7 +964,7 @@ button:focus-visible {
   gap: 24px;
   width: 100%;
   padding: 80px var(--gutter-inline);
-  /* Section fill from the design (node 110:136): bg/secondary */
+  /* Section fill from the design (node 254:5785): bg/secondary */
   background: var(--bg-secondary);
 }
 
@@ -1732,13 +1735,13 @@ button:focus-visible {
   font-size: 24px;
   font-weight: 400;
   line-height: 24px;
-  color: var(--text-warning-primary);
+  color: var(--blue-900);
   text-decoration: none;
   transition: border-color 150ms ease, box-shadow 150ms ease;
 }
 
 .contact__phone:hover {
-  border-color: var(--border-warning-primary);
+  border-color: var(--blue-900);
   box-shadow: 0 4px 16px rgba(15, 23, 42, 0.08);
 }
 
@@ -1763,7 +1766,7 @@ button:focus-visible {
   font-style: normal;
   font-weight: 400;
   line-height: 24px;
-  color: var(--text-warning-primary);
+  color: var(--blue-900);
 }
 
 .contact__address img {
@@ -2129,7 +2132,7 @@ button:focus-visible {
 .sticky-header__accent {
   flex: 0 0 auto;
   height: 4px;
-  background: var(--bg-warning-secondary);
+  background: var(--blue-900);
 }
 
 /* The bar itself (node 155:299), 70px tall: 12px padding + 46px content */

@@ -60,7 +60,7 @@
       "Zatrzymaj wideo w tle": "Hintergrundvideo anhalten",
 
       /* --- Reviews ----------------------------------------------- */
-      "Co myślą o nas goście?": "Was sagen unsere Gäste?",
+      "Co myślą goście?": "Was sagen unsere Gäste?",
       Zatrzymaj: "Anhalten",
       Wznów: "Fortsetzen",
       "Lokalny przewodnik": "Local Guide",
